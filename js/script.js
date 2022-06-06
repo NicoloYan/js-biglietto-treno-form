@@ -28,7 +28,7 @@ console.log(discount)
     console.log(originalPrice)
     let finalPrice = originalPrice - discount;
     let ticketPrice = document.getElementById('ticket_price')
-    console.log(ticketPrice.value)
+    console.log(ticketPrice)
 
     
     if ( userAge.value == 'minorenne' ) {
@@ -36,15 +36,22 @@ console.log(discount)
         
         offer.innerHTML = 'Tariffa minorenne';
         finalPrice = originalPrice - discount;
-        ticketPrice.innerHTML = finalPrice;
+        ticketPrice.innerHTML = parseFloat(finalPrice);
     }
     else if ( userAge.value == 'over' ) {
         discount = parseInt(originalPrice * 40 / 100);
         
         offer.innerHTML = 'Tariffa Over 65';
         finalPrice = originalPrice - discount;
-        ticketPrice.innerHTML = finalPrice;
+        ticketPrice.innerHTML = parseFloat(finalPrice);
+    }
+    else {
+        offer.innerHTML = 'Tariffa Standard';
+        finalPrice = originalPrice;
+        ticketPrice.innerHTML = parseFloat(finalPrice);
     } 
 
     userName.value = ''
+    userKm.value = ''
+    userAge.value = 'maggiorenne'
 })
